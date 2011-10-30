@@ -12,8 +12,7 @@ class Video
   default_scope order_by([[:updated_at, :asc]])
 
   def download_url
-    bucket = s3.buckets[bucket_name]
-    object = bucket.objects[name]
+    object = s3.buckets[bucket_name].objects[name]
     url = object.url_for(:read, response_content_disposition: %Q(attachment; filename="#{name}"))
     url.to_s
   end
@@ -21,13 +20,7 @@ class Video
   private
 
   def s3
-    @s3 ||= AWS::S3.new(access_key_id: '02D3VGN7JVANFEQ6MBR2',
-                        secret_access_key: 'o0txy9yrCyWTeHXxtcy2lNKoXohHJ+oZ2QUVrvRV')
-  end
-
-  def content_disposition
-    value = %Q(attachment; filename="#{name}")
-    # "response-content-disposition=#{URI.escape(value)}"
-    "response-content-disposition=#{value}"
+    @s3 ||= AWS::S3.new(access_key_id:      APP_CONFIG[:access_key_id],
+                        secret_access_key:  APP_CONFIG[:secret_access_key])
   end
 end
