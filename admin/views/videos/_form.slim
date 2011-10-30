@@ -6,6 +6,13 @@
   span.description Ex: sophie-vacations.mov
 
 .group
+  ==f.label :bucket_name
+  ==f.error_message_on :bucket_name
+  ==f.text_field :bucket_name, :class => :text_field
+  br
+  span.description Ex: my-sharing
+
+.group
   ==f.label :title
   ==f.error_message_on :title
   ==f.text_field :title, :class => :text_field
@@ -18,14 +25,6 @@
   ==f.text_field :description, :class => :text_field
   br
   span.description Ex: Video of Sophie on vacations taken in August 2010
-
-.group
-  ==f.label :url
-  ==f.error_message_on :url
-  ==f.text_field :url, :class => :text_field
-  br
-  span.description Ex: http://my-sharing.s3.amazonaws.com/SophieOnVacations.mp4
-
 
 .group.navform.wat-cf
   ==f.submit pat(:save), :class => :button

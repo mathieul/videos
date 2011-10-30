@@ -12,17 +12,17 @@
       table.table
         tr
           th.first=mat(:video, :name)
+          th=mat(:video, :bucket_name)
           th=mat(:video, :title)
           th=mat(:video, :description)
-          th=mat(:video, :url)
           th=mat(:video, :updated_at)
           th.last=="&nbsp;"
         -@videos.each do |video|
           tr
             td.first=video.name
+            td=video.bucket_name
             td=video.title
             td=video.description
-            td=video.url
             td=video.updated_at
             td.last
               ==button_to pat(:edit), url(:videos, :edit, :id => video.id), :method => :get, :class => :button_to
