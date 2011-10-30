@@ -1,4 +1,11 @@
 .group
+  ==f.label :name
+  ==f.error_message_on :name
+  ==f.text_field :name, :class => :text_field
+  br
+  span.description Ex: sophie-vacations.mov
+
+.group
   ==f.label :title
   ==f.error_message_on :title
   ==f.text_field :title, :class => :text_field

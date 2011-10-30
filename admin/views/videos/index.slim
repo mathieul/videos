@@ -11,14 +11,16 @@
     .inner
       table.table
         tr
-          th.first=mat(:video, :title)
+          th.first=mat(:video, :name)
+          th=mat(:video, :title)
           th=mat(:video, :description)
           th=mat(:video, :url)
           th=mat(:video, :updated_at)
           th.last=="&nbsp;"
         -@videos.each do |video|
           tr
-            td.first=video.title
+            td.first=video.name
+            td=video.title
             td=video.description
             td=video.url
             td=video.updated_at
