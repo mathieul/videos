@@ -16,7 +16,7 @@ gem 'mongoid'
 gem 'bson_ext', :require => 'mongo'
 
 # Library requirements
-gem 'aws'
+gem 'aws-sdk'
 
 # Test requirements
 gem 'rspec', :group => "test"

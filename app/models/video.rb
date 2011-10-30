@@ -1,4 +1,4 @@
-require 'aws'
+require 'aws-sdk'
 
 class Video
   include Mongoid::Document
@@ -12,15 +12,17 @@ class Video
   default_scope order_by([[:updated_at, :asc]])
 
   def download_url
-    bucket_gen = Aws::S3Generator::Bucket.create(s3, bucket_name)
-    path = "#{name}?#{content_disposition}"
-    bucket_gen.get(path)
+    bucket = s3.buckets[bucket_name]
+    object = bucket.objects[name]
+    url = object.url_for(:read, response_content_disposition: %Q(attachment; filename="#{name}"))
+    url.to_s
   end
 
   private
 
   def s3
-    @s3 ||= Aws::S3.new('02D3VGN7JVANFEQ6MBR2', 'o0txy9yrCyWTeHXxtcy2lNKoXohHJ+oZ2QUVrvRV')
+    @s3 ||= AWS::S3.new(access_key_id: '02D3VGN7JVANFEQ6MBR2',
+                        secret_access_key: 'o0txy9yrCyWTeHXxtcy2lNKoXohHJ+oZ2QUVrvRV')
   end
 
   def content_disposition
