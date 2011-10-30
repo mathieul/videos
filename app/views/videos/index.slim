@@ -1,0 +1,9 @@
+h1 Videos
+
+section#videos
+  - @videos.each do |video|
+    article.video
+      header
+        h1= video.title
+      p== link_to 'DOWNLOAD', video.download_url, :class => 'download'
+      p= video.description

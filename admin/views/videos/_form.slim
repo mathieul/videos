@@ -1,0 +1,26 @@
+.group
+  ==f.label :title
+  ==f.error_message_on :title
+  ==f.text_field :title, :class => :text_field
+  br
+  span.description Ex: Sophie on vacations
+
+.group
+  ==f.label :description
+  ==f.error_message_on :description
+  ==f.text_field :description, :class => :text_field
+  br
+  span.description Ex: Video of Sophie on vacations taken in August 2010
+
+.group
+  ==f.label :url
+  ==f.error_message_on :url
+  ==f.text_field :url, :class => :text_field
+  br
+  span.description Ex: http://my-sharing.s3.amazonaws.com/SophieOnVacations.mp4
+
+
+.group.navform.wat-cf
+  ==f.submit pat(:save), :class => :button
+  =="&nbsp;"
+  ==f.submit pat(:cancel), :onclick => "window.location='#{url(:videos, :index)}';return false", :class => :button

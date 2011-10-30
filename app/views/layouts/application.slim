@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  head
+    title Videos
+    meta(charset='UTF-8')
+    meta(content='Mathieu' name='author')
+    meta(content='width=device-width, initial-scale=1.0' name='viewport')
+    == stylesheet_link_tag 'application'
+    /[if lt IE 9]
+      script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body.old-mathematics
+    == yield
+    iframe#download-target(style='display: none')
+    /== javascript_include_tag 'jquery', 'application'
