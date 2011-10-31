@@ -13,6 +13,7 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'sass'
 gem 'slim'
 gem 'mongoid'
+gem 'mongo'
 gem 'bson_ext', :require => 'mongo'
 
 # Library requirements

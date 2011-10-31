@@ -38,4 +38,4 @@ Padrino.mount("Admin").to("/admin")
 require 'yaml'
 
 config_file_name = File.expand_path('../config.yml', __FILE__)
-APP_CONFIG = YAML.parse(File.read(config_file_name))
+APP_CONFIG = YAML.load(File.read(config_file_name))
