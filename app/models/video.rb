@@ -9,7 +9,7 @@ class Video
   field :title       , type: String
   field :description , type: String
 
-  default_scope order_by([[:updated_at, :asc]])
+  default_scope order_by([[:updated_at, :desc]])
 
   def download_url
     object = s3.buckets[bucket_name].objects[name]
